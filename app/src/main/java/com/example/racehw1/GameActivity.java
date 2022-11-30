@@ -25,7 +25,6 @@ public class GameActivity extends AppCompatActivity {
     private AppCompatImageView game_IMG_background;
     private ExtendedFloatingActionButton game_FAB_right;
     private ExtendedFloatingActionButton game_FAB_left;
-    private int spacePosition = 1;//at start will be in the center
 
     GameManager gameManager;
 
@@ -84,6 +83,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void spaceMove(int mov) {
         //-1 for left, 1 for right
+        int spacePosition = gameManager.getSpaceshipLocation();
         int newPosition = mov + spacePosition;
         if(newPosition > 2 || newPosition < 0){//if you try to move beyond the boundaries nothing will happend
             return;
@@ -100,6 +100,7 @@ public class GameActivity extends AppCompatActivity {
     private void checkCrash() {
         if(gameManager.checkCrash()) {
             int lives = gameManager.getLives();
+            game_IMG_asteroid[0][gameManager.getSpaceshipLocation()].setVisibility(View.INVISIBLE);
             toast();
             vibrate();
             if (lives == 0) {
@@ -118,9 +119,8 @@ public class GameActivity extends AppCompatActivity {
         game_IMG_spaceship[0].setVisibility(View.GONE);
         game_IMG_spaceship[1].setVisibility(View.VISIBLE);
         game_IMG_spaceship[2].setVisibility(View.GONE);
-        spacePosition = 1;
 
-        gameManager = new GameManager(spacePosition, game_IMG_asteroid.length,
+        gameManager = new GameManager(1, game_IMG_asteroid.length,
                 game_IMG_asteroid[0].length, hearts.length);
 
         updateAsteroidsUI();
