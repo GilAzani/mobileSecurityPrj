@@ -51,7 +51,7 @@ public class MapFragment extends Fragment {
 
     public void zoom(int index) {
         if (index < recordHolders.size()) {
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerOptions[index].getPosition(), 5));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(markerOptions[index].getPosition(), 15));
         }
         else{
             SignalGenerator.getInstance().toast("there is no record!");
