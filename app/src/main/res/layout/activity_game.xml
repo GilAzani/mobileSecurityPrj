@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameActivity">
+    tools:context="activities.GameActivity">
 
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -50,6 +50,26 @@
             app:srcCompat="@drawable/heart" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="10dp"
+        >
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/game_LBL_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:scaleType="fitCenter"
+            android:text="000"
+            android:textStyle="bold"
+            android:textSize="40sp"
+             />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,12 +90,99 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/game_IMG_asteroid_4_0"
-                    android:layout_width="100dp"
+                    android:id="@+id/game_IMG_asteroid_7_0"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_7_0"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_6_0"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_6_0"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_5_0"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_5_0"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_4_0"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_4_0"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -88,11 +195,20 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_IMG_asteroid_3_0"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_3_0"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -105,11 +221,20 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_IMG_asteroid_2_0"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_2_0"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -122,11 +247,20 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_IMG_asteroid_1_0"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_1_0"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -140,7 +274,7 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_IMG_spaceship0"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/spaceship"
@@ -149,11 +283,474 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/game_IMG_asteroid_0_0"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_0_0"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_7_1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_7_1"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_6_1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_6_1"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_5_1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_5_1"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_4_1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_4_1"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_3_1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_3_1"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_2_1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_2_1"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_1_1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_1_1"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_spaceship1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/spaceship"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_0_1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_0_1"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_7_2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_7_2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_6_2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_6_2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_5_2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_5_2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_4_2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_4_2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_3_2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_3_2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_2_2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_2_2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_1_2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_1_2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_spaceship2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/spaceship"
+                    android:visibility="visible"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_0_2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_0_2"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -175,12 +772,21 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/game_IMG_asteroid_4_1"
-                    android:layout_width="100dp"
+                    android:id="@+id/game_IMG_asteroid_7_3"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_7_3"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -192,12 +798,21 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/game_IMG_asteroid_3_1"
-                    android:layout_width="100dp"
+                    android:id="@+id/game_IMG_asteroid_6_3"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_6_3"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -209,12 +824,99 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/game_IMG_asteroid_2_1"
-                    android:layout_width="100dp"
+                    android:id="@+id/game_IMG_asteroid_5_3"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_5_3"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_4_3"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_4_3"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_3_3"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_3_3"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_2_3"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_2_3"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -227,12 +929,21 @@
                 >
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/game_IMG_asteroid_1_1"
-                    android:layout_width="100dp"
+                    android:id="@+id/game_IMG_asteroid_1_3"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_1_3"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -244,19 +955,30 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/game_IMG_spaceship1"
-                    android:layout_width="100dp"
+                    android:id="@+id/game_IMG_spaceship3"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/spaceship" />
+                    app:srcCompat="@drawable/spaceship"
+                    android:visibility="gone"
+                    />
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/game_IMG_asteroid_0_1"
-                    android:layout_width="100dp"
+                    android:id="@+id/game_IMG_asteroid_0_3"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     app:srcCompat="@drawable/asteroid"
-                    android:visibility="invisible"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_0_3"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -278,12 +1000,125 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/game_IMG_asteroid_4_2"
-                        android:layout_width="100dp"
+                        android:id="@+id/game_IMG_asteroid_7_4"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         app:srcCompat="@drawable/asteroid"
-                        android:visibility="invisible"
+                        android:visibility="gone"
+                        />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/game_IMG_coin_7_4"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/coin"
+                        android:visibility="gone"
+                        />
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_6_4"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_6_4"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_5_4"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_5_4"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_asteroid_4_4"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/asteroid"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/game_IMG_coin_4_4"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/coin"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/game_IMG_asteroid_3_4"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/asteroid"
+                        android:visibility="gone"
+                        />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/game_IMG_coin_3_4"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/coin"
+                        android:visibility="gone"
                         />
 
                 </LinearLayout>
@@ -295,12 +1130,21 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/game_IMG_asteroid_3_2"
-                        android:layout_width="100dp"
+                        android:id="@+id/game_IMG_asteroid_2_4"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         app:srcCompat="@drawable/asteroid"
-                        android:visibility="invisible"
+                        android:visibility="gone"
+                        />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/game_IMG_coin_2_4"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/coin"
+                        android:visibility="gone"
                         />
 
                 </LinearLayout>
@@ -312,12 +1156,21 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/game_IMG_asteroid_2_2"
-                        android:layout_width="100dp"
+                        android:id="@+id/game_IMG_asteroid_1_4"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         app:srcCompat="@drawable/asteroid"
-                        android:visibility="invisible"
+                        android:visibility="gone"
+                        />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/game_IMG_coin_1_4"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/coin"
+                        android:visibility="gone"
                         />
 
                 </LinearLayout>
@@ -329,37 +1182,29 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/game_IMG_asteroid_1_2"
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        app:srcCompat="@drawable/asteroid"
-                        android:visibility="invisible"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/game_IMG_spaceship2"
-                        android:layout_width="100dp"
+                        android:id="@+id/game_IMG_spaceship4"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         app:srcCompat="@drawable/spaceship"
                         android:visibility="gone"/>
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/game_IMG_asteroid_0_2"
-                        android:layout_width="100dp"
+                        android:id="@+id/game_IMG_asteroid_0_4"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         app:srcCompat="@drawable/asteroid"
-                        android:visibility="invisible"
+                        android:visibility="gone"
+                        />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/game_IMG_coin_0_4"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/coin"
+                        android:visibility="gone"
                         />
 
                 </LinearLayout>
