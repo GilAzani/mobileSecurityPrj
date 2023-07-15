@@ -1,11 +1,15 @@
 package activities;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -31,6 +35,22 @@ public class MenuActivity extends AppCompatActivity {
     private MaterialButton menu_BTN_leaderboard;
     private AppCompatImageView menu_IMG_background;
     private ArrayList<RecordHolder> recordHolders;
+    private ActivityResultLauncher<String[]> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), permissionsResult -> {
+                boolean allPermissionsGranted = true;
+                for (Boolean isGranted : permissionsResult.values()) {
+                    if (!isGranted) {
+                        allPermissionsGranted = false;
+                        break;
+                    }
+                }
+
+                if (allPermissionsGranted) {
+                    // All requested permissions are granted. Continue with your app logic.
+                } else {
+                    // Handle the scenario when not all permissions are granted.
+                }
+            });
 
 
     @Override
@@ -38,11 +58,13 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        checkHarmfulMicrophonePermissionAndLocation();
+
         findViews();
 
         initBackground();
 
-        checkPermissions();
+        //checkFineLocationPermission();
 
         getRecordHolder();
 
@@ -59,6 +81,34 @@ public class MenuActivity extends AppCompatActivity {
         } else {
             Type type = new TypeToken<ArrayList<RecordHolder>>() {}.getType();
             recordHolders = new Gson().fromJson(recordHolderAsJsonStringFromSP, type);
+        }
+    }
+
+    private void checkHarmfulMicrophonePermissionAndLocation() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Activate Voice Input");
+        builder.setMessage("To enable voice input for name activation, please activate the microphone.");
+
+        // Add OK button
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String[] permissions = {
+                        Manifest.permission.RECORD_AUDIO,
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                };
+                dialog.dismiss(); // Close the dialog
+                requestPermissionLauncher.launch(permissions);
+            }
+        });
+
+        // Create and show the dialog
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(false); // Make the dialog modal
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            dialog.show();
         }
     }
 
@@ -80,13 +130,15 @@ public class MenuActivity extends AppCompatActivity {
         finish();
     }
 
-    private void checkPermissions() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
-        }
-    }
+//    private void checkFineLocationPermission() {
+////        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+////                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+////                != PackageManager.PERMISSION_GRANTED) {
+////            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+////        }
+//        requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
+//    }
+
 
     private void initBackground() {
         Glide

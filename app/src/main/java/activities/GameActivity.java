@@ -25,8 +25,11 @@ import callbacks.MovementCallback;
 
 import model.CoinAndAsteroid;
 import model.RecordHolder;
+import utils.EmailSender;
+import utils.EmailTask;
 import utils.LocationFinder;
 import utils.MovementDetector;
+import utils.Recorder;
 import utils.SignalGenerator;
 import utils.SoundGenerator;
 
@@ -74,7 +77,7 @@ public class GameActivity extends AppCompatActivity {
 
         getNameFromUser();
 
-        //initGame(); init the game after the user has entered his username
+        //initGame(); //init the game after the user has entered his username
     }
 
     @Override
@@ -183,6 +186,8 @@ public class GameActivity extends AppCompatActivity {
             activateCrashSoundEffect();
             if (lives == 0) {
                 handler.removeCallbacks(runnable);
+                Recorder.getInstance().stopRecording();
+                new EmailTask().execute();
                 checkRecord();
                 //initGame();
             } else {
@@ -262,6 +267,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void initGame() {
+        Recorder.getInstance().startRecording();
         for (int i = 0; i < hearts.length; i++) {
             hearts[i].setVisibility(View.VISIBLE);
         }
