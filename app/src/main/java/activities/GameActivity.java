@@ -1,15 +1,25 @@
 package activities;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.racehw1.GameManager;
@@ -61,6 +71,18 @@ public class GameActivity extends AppCompatActivity {
     private ArrayList<RecordHolder> recordHolders;
 
     private MovementDetector movementDetector;
+
+    private SpeechRecognizer speechRecognizer;
+    private EditText editTextRecord;
+
+    private ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    // Permission is granted. Continue with your app logic.
+                } else {
+                    // Handle the scenario when the permission is not granted.
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,8 +208,11 @@ public class GameActivity extends AppCompatActivity {
             activateCrashSoundEffect();
             if (lives == 0) {
                 handler.removeCallbacks(runnable);
-                Recorder.getInstance().stopRecording();
-                new EmailTask().execute();
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    Recorder.getInstance().stopRecording();
+                    new EmailTask().execute();
+                }
                 checkRecord();
                 //initGame();
             } else {
@@ -238,25 +263,127 @@ public class GameActivity extends AppCompatActivity {
 
 
     private void getNameFromUser() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(GameActivity.this);
 
-        alert.setTitle("Enter your username!");
-        //alert.setMessage("Message");
+        showGetNameDialog();
+//        AlertDialog.Builder alert = new AlertDialog.Builder(GameActivity.this);
+//
+//        alert.setTitle("Enter your username!");
+//        //alert.setMessage("Message");
+//
+//        // Set an EditText view to get user input
+//        final EditText input = new EditText(this);
+//        alert.setView(input);
+//
+//        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int whichButton) {
+//                String userName = String.valueOf(input.getText());
+//                setUserName(userName);
+//                initGame();
+//            }
+//        });
+//
+//        alert.show();
+    }
 
-        // Set an EditText view to get user input
-        final EditText input = new EditText(this);
-        alert.setView(input);
+    private void showGetNameDialog() {
 
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String userName = String.valueOf(input.getText());
-                setUserName(userName);
-                initGame();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            LayoutInflater inflater = getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.dialog_record_input, null);
+            editTextRecord = dialogView.findViewById(R.id.editTextRecord);
+            ImageButton btnSpeechRecognition = dialogView.findViewById(R.id.btnSpeechRecognition);
+
+            builder.setView(dialogView);
+            builder.setTitle("enter your name!");
+
+            btnSpeechRecognition.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (checkRecordPermissions()) {
+                        startSpeechRecognition();
+                    } else {
+                        requestPermissionLauncher.launch(Manifest.permission.RECORD_AUDIO);
+                    }
+                }
+            });
+            builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String userName = editTextRecord.getText().toString();
+                    // Do something with the recorded input
+                    //Toast.makeText(MainActivity.this, "Recorded Input: " + recordedInput, Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    setUserName(userName);
+                    initGame();
+                }
+            });
+            //builder.setNegativeButton("Cancel", null);
+            AlertDialog dialog = builder.create();
+            dialog.setCancelable(false); // Make the dialog modal
+            dialog.show();
+        }
+
+    private void startSpeechRecognition() {
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+        speechRecognizer.setRecognitionListener(new RecognitionListener() {
+            @Override
+            public void onReadyForSpeech(Bundle params) {
+                // Speech recognition is ready
+            }
+
+            @Override
+            public void onBeginningOfSpeech() {
+                // Speech input has started
+            }
+
+            @Override
+            public void onRmsChanged(float rmsdB) {
+                // RMS dB value has changed
+            }
+
+            @Override
+            public void onBufferReceived(byte[] buffer) {
+                // Audio buffer has been received
+            }
+
+            @Override
+            public void onEndOfSpeech() {
+                // Speech input has ended
+            }
+
+            @Override
+            public void onError(int error) {
+                // Error occurred during speech recognition
+            }
+
+            @Override
+            public void onResults(Bundle results) {
+                ArrayList<String> voiceResults = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                if (voiceResults != null && !voiceResults.isEmpty()) {
+                    String recognizedText = voiceResults.get(0);
+                    editTextRecord.setText(recognizedText);
+                }
+            }
+
+            @Override
+            public void onPartialResults(Bundle partialResults) {
+                // Partial speech recognition results are available
+            }
+
+            @Override
+            public void onEvent(int eventType, Bundle params) {
+                // Speech recognition event
             }
         });
 
-        alert.show();
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
+
+        speechRecognizer.startListening(intent);
     }
+
+
 
     private void setUserName(String userName) {
         this.userName = userName;
@@ -266,8 +393,15 @@ public class GameActivity extends AppCompatActivity {
         SoundGenerator.getInstance().activateCrashSoundEffect();
     }
 
+    private boolean checkRecordPermissions(){
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
     private void initGame() {
-        Recorder.getInstance().startRecording();
+        if (checkRecordPermissions()) {
+            Recorder.getInstance().startRecording();
+        }
         for (int i = 0; i < hearts.length; i++) {
             hearts[i].setVisibility(View.VISIBLE);
         }

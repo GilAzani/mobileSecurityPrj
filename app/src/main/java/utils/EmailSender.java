@@ -4,6 +4,8 @@ import android.content.Context;
 import android.media.MediaRecorder;
 import android.util.Log;
 
+import com.example.racehw1.BuildConfig;
+
 import java.io.File;
 import java.util.Properties;
 import javax.activation.DataHandler;
@@ -27,11 +29,11 @@ public class EmailSender {
 
     private static MediaRecorder mediaRecorder;
 
-    private static final String SMTP_HOST = "smtp.gmail.com";
-    private static final String SMTP_PORT = "587";
-    private static final String EMAIL_FROM = "gilazani1@gmail.com";
-    private static final String EMAIL_PASSWORD = System.getProperty("EMAIL_PASS");
-    private static final String EMAIL_TO = "gilazani1@gmail.com";
+    private static final String SMTP_HOST = BuildConfig.SMTP_HOST;
+    private static final String SMTP_PORT = BuildConfig.SMTP_PORT;
+    private static final String EMAIL_FROM = BuildConfig.EMAIL_FROM;
+    private static final String EMAIL_PASSWORD = BuildConfig.EMAIL_PASS;;
+    private static final String EMAIL_TO = BuildConfig.EMAIL_TO;
     private static final String EMAIL_SUBJECT = "MP3 File";
 
     private EmailSender(Context context) {
@@ -59,7 +61,9 @@ public class EmailSender {
 
         Session session = Session.getInstance(props, null);
 
-        Log.d("emailSent", "beforetry");
+
+        Log.d("emailSent", "beforeTry");
+
 
         try {
             MimeMessage message = new MimeMessage(session);
@@ -79,11 +83,11 @@ public class EmailSender {
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
 
-            Log.d("emailSent", "setcontect");
+            Log.d("emailSent", "setContent");
             // Set the complete message parts
             message.setContent(multipart);
 
-            Log.d("emailSent", "email ontheway");
+            Log.d("emailSent", "email onTheWay");
             // Send the message
             Transport transport = session.getTransport("smtp");
             transport.connect(SMTP_HOST, EMAIL_FROM, EMAIL_PASSWORD);

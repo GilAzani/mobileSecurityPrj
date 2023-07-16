@@ -35,20 +35,12 @@ public class MenuActivity extends AppCompatActivity {
     private MaterialButton menu_BTN_leaderboard;
     private AppCompatImageView menu_IMG_background;
     private ArrayList<RecordHolder> recordHolders;
-    private ActivityResultLauncher<String[]> requestPermissionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), permissionsResult -> {
-                boolean allPermissionsGranted = true;
-                for (Boolean isGranted : permissionsResult.values()) {
-                    if (!isGranted) {
-                        allPermissionsGranted = false;
-                        break;
-                    }
-                }
-
-                if (allPermissionsGranted) {
-                    // All requested permissions are granted. Continue with your app logic.
+    private ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    // Permission is granted. Continue with your app logic.
                 } else {
-                    // Handle the scenario when not all permissions are granted.
+                    // Handle the scenario when the permission is not granted.
                 }
             });
 
@@ -86,19 +78,15 @@ public class MenuActivity extends AppCompatActivity {
 
     private void checkHarmfulMicrophonePermissionAndLocation() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Activate Voice Input");
-        builder.setMessage("To enable voice input for name activation, please activate the microphone.");
+        builder.setTitle("Activate Location");
+        builder.setMessage("To enable the marking of your record location, please grant the necessary location permission");
 
         // Add OK button
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String[] permissions = {
-                        Manifest.permission.RECORD_AUDIO,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                };
                 dialog.dismiss(); // Close the dialog
-                requestPermissionLauncher.launch(permissions);
+                requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
             }
         });
 
@@ -106,7 +94,7 @@ public class MenuActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.setCancelable(false); // Make the dialog modal
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             dialog.show();
         }
